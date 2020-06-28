@@ -49,7 +49,7 @@ class TradingHistoryController extends Controller
 
     public function update(TradingHistory $trading_history) {
         $this->save($trading_history);
-        return redirect()->to('trading_history');
+        return redirect()->to('trading-history');
     }
 
     public function destroy(TradingHistory $trading_history) {
@@ -60,14 +60,14 @@ class TradingHistoryController extends Controller
     function createViewWithReturn($th, $type) {
         $th->exit_dateTime = Carbon::parse($th->exit_dateTime)->format('Y-m-d\TH:i');
         $th->entry_dateTime = Carbon::parse($th->entry_dateTime)->format('Y-m-d\TH:i');
-        return view('trading-histories.save', compact('th'), ['symbols'=>$this->SYMBLES, 'orderTypes'=>$this->ORDER_TYPES, 'type'=>$type]);
+        return view('trading-histories.save', compact('th'), ['symbols'=>$this->SYMBOLS, 'orderTypes'=>$this->ORDER_TYPES, 'type'=>$type]);
     }
 
     function save($data = null) {
-        request()->validate(['entty_dateTime' => 'before:exit_dateTime'])
+        request()->validate(['entty_dateTime' => 'before:exit_dateTime']);
 
-        if ($data ==== null) {
-            $data = new TradingHIstory();
+        if ($data === null) {
+            $data = new TradingHistory();
         }
 
         $data->memo = request('memo');

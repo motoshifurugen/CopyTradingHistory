@@ -27,6 +27,10 @@ th {
         <td><input type="datetime-local" name="entry_dateTime" value="{{ $th->entry_dateTime }}" required></td>
     </tr>
     <tr>
+        <th>決済日時</th>
+        <td><input type="datetime-local" name="exit_dateTime" value="{{ $th->exit_dateTime }}" required></td>
+    </tr>
+    <tr>
         <th>銘柄</th>
         <td>
             <select name="symbol">

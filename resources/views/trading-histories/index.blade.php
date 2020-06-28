@@ -107,7 +107,7 @@ th {
         <td align="right">{{ $th->entry }}</td>
         <td align="right">{{ $th->exit }}</td>
         <td align="right">{{ $th->profit }}</td>
-        <td>{{ $this->memo }}</td>
+        <td>{{ $th->memo }}</td>
         <td><button type="button" onclick="location.href='/trading-history/{{ $th->id }}/edit'">編集</button></td>
         <td valign="middle">
             <form action="/trading-history/{{ $th->id }}" method="POST" style="display:inline">
